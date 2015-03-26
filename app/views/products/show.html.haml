@@ -1,0 +1,29 @@
+%div{:class => "row"}
+  %div{:class => "col-lg-4"}
+    %h2 Listing products
+
+%div{:class => "row"}
+  %div{:class => "col-xs-4"}
+    =image_tag @product.image_link, :class => "product_main_img"
+
+  %div{:class => "col-xs-4"} column1
+
+-#%p
+-#%strong Name:
+-#= @product.name
+-#%p
+-#%strong Description:
+-#= @product.description
+-#%p
+-#%strong Price:
+-#= @product.price
+-#%p
+-#%strong Available:
+-#= @product.available
+-#%p
+-#%strong Purchase link:
+-#= @product.purchase_link
+-#%p
+-#%strong Image link:
+-#= @product.image_link
+-#= link_to 'Edit', edit_product_path(@product)
