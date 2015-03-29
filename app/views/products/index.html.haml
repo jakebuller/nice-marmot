@@ -1,8 +1,9 @@
 - @product_rows.each do |row|
   %div.row.products-row
     -row.each do |product|
-      %div.product-listing.col-xs-4
-        %div.product-listing-image
-          =image_tag product.image_link
-        %span.product-price-tag
-          =number_to_currency(product.price)
+      %a{:href => products_path + '/' + product.id.to_s}
+        %div.product-listing.col-xs-4
+          %div.product-listing-image
+            =image_tag product.image_link
+          %span.product-price-tag
+            =number_to_currency(product.price)
