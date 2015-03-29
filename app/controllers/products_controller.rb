@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @product_rows = Product.all.each_slice(3).to_a
   end
 
   # GET /products/1
