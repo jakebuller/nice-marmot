@@ -6,11 +6,7 @@ product_images = [
 ]
 
 # Remove all of the existing products
-Product.delete_all
-
-# TODO this will reset the SQLite autoincrement for products however this is specific to
-# to sql like and needs to be updated for a #dbmigration
-ActiveRecord::Base.connection.execute("delete from sqlite_sequence where name='products'")
+ActiveRecord::Base.connection.execute("truncate table products")
 
 # Create some dummy products
 10.times do |i|
