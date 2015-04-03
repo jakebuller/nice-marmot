@@ -8,10 +8,10 @@
       %h2
         =@product.name
 
-    %div{:class => 'product-description' }
+    %div{:class => 'product-description'}
       =@product.description
 
-    %div{:class => 'product-price' }
+    %div{:class => 'product-price'}
       =number_to_currency(@product.price)
 
     %div{:class => 'product-button-wrapper' }
