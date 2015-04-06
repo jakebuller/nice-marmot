@@ -1,19 +1,16 @@
 -# Under construction header
-%h1.welcome-title-1 Under Construction
-%h1.welcome-title-2 Give it a second. Would yeah? Could you give it a second. It's going to space. Can you give it a second?
-%div.lk-credit - Louis C.K.
-
-%br
-%br
-%br
+%h1.welcome-title-1 Welcome to Nice Marmot Clothing!
+%h1.welcome-title-2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget commodo ex. Duis convallis a arcu in finibus. Duis scelerisque commodo magna. Integer finibus iaculis neque ac hendrerit.
 
 -# Main products area
 - @product_rows.each do |row|
-  %div.row.products-row
+  %div.row.product-row.spacer
     -row.each do |product|
-      %a{:href => products_path + '/' + product.id.to_s}
-        %div.product-listing.col-xs-4
+      %div.product-col.col-md-4
+        %a{:href => products_path + '/' + product.id.to_s}
           %div.product-listing-image
             =image_tag product.image_link
+        %div.product-listing-info
           %span.product-price-tag
             =number_to_currency(product.price)
+          =link_to 'Buy Now', product.purchase_link, class: 'product-buy-now'
