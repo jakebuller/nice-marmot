@@ -42,19 +42,8 @@
     = javascript_include_tag 'application'
 
     %body
-        -#%div{:class => 'navbar navbar-default navbar-static-top'}
-        -#    %div{:class => 'container'}
-                -#%button{:type => 'button', :class=> 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse'}
-                -#    %span{:class => 'icon-bar'}
-                -#    %span{:class => 'icon-bar'}
-                -#    %span{:class => 'icon-bar'}
-                -#= link_to 'Nice Marmot', root_path, class: 'navbar-brand'
-                -#%div{:class => 'navbar-collapse collapse navbar-responsive-collapse'}
-                -#    %ul{:class => 'nav navbar-nav'}
-                -#        %li
-                -#            = link_to 'Products', products_path
         %div.navbar.navbar-default
-            %div.container.logo-container
+            %div.container-fluid.logo-container
                 -#=link_to '', products_path
                 %a{href: products_path}
                     %div.logo
@@ -69,8 +58,7 @@
             %div.row
                 %div.col-md-4.text-center
                 %div.col-md-4.text-center
-                    =link_to 'Contact', 'http://google.ca'
-                    =link_to 'About', 'http://google.ca'
-                    =link_to 'About', 'http://google.ca'
-                    %p &copy; 2015 Nice Marmot Clothing
+                    =mail_to 'jake.r.buller@gmail.com', 'Contact'
+                    =link_to 'About', about_path
+                    %p &copy; 2015 Tee Shits Clothing
                 %div.col-md-4.text-center
