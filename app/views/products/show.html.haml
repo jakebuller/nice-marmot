@@ -7,11 +7,11 @@
       %h2
         =@product.name
 
-      %div.product-description
+      %div.product-description.text
         =@product.description
 
-      %div.product-price
+      %div.product-price.text
         =number_to_currency(@product.price)
 
       %div.product-button-wrapper
-        =button_to 'Buy', @product.purchase_link, class: 'button btn-default product-buy'
+        =button_to 'Buy', @product.purchase_link, class: 'my-btn product-buy'

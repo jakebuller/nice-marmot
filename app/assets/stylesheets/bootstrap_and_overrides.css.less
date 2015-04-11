@@ -17,6 +17,25 @@
   border: none;
 }
 
+.my-btn {
+  border-radius: 5px;
+  border: 1px @blue-1 solid;
+  background: @blue-2;
+  padding: 5px 15px 5px 15px;
+  color: #fff;
+}
+
+.my-btn:hover {
+  background: @blue-1;
+}
+
+input[type=text] {
+  border-radius: 5px;
+  border: 1px @blue-1 solid;
+  padding: 5px;
+  color: @brand-primary;
+}
+
 h2 {
   font-family: @main-font;
   font-weight: bold;
@@ -40,8 +59,10 @@ h2 {
 }
 
 .logo {
+  color:#fff;
+  font-family: @logo-font;
+  font-size: 48px;
   text-align: center;
-  padding-bottom: 25px;
 
   img {
     max-width: 300px;
@@ -59,7 +80,7 @@ h2 {
 
 .welcome-title {
   text-align: center;
-  font-family: 'Indie Flower', cursive;
+  font-family: @main-font;
 }
 
 .lk-credit {
@@ -103,21 +124,14 @@ h2 {
 }
 
 .footer {
-  border-top: 3px solid #CCC;
-  margin-top: 30px;
-  padding: 10px;
+  border-top: 3px solid @grey-1;
+  padding: 20px 10px 10px 10px;
   background: @brand-primary;
-  color: #fff;
-
-  p {
-    margin-top: 10px;
-    font-size: 14px;
-  }
+  font-size: 20px;
 
   a {
     color: #fff;
-    padding: 0 15px 0 15px;
-    font-size: 18px;
+    padding: 0 20px 0 20px;
   }
 }
 
@@ -129,4 +143,32 @@ h2 {
 .about-container {
   font-family: @main-font;
   text-align: center;
+}
+
+.mailing-container {
+  line-height: 20px;
+  background: @grey-1;
+  padding: 20px;
+
+  label {
+    color: @blue-1;
+    text-align: center;
+  }
+
+  input[type=text] {
+    width: 200px;
+  }
+
+  input {
+    margin-left: 15px;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.main {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
