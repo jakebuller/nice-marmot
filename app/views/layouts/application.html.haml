@@ -15,8 +15,6 @@
         %script {:src => '//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js', :type => 'text/javascript'}
 
     -#Load the fonts we'll need
-    %link{:href=> 'http://fonts.googleapis.com/css?family=Indie+Flower', :rel => 'stylesheet', :type =>'text/css'}
-
     = stylesheet_link_tag 'application', :media => 'all'
 
     -# For third-generation iPad with high-resolution Retina display:
@@ -42,19 +40,33 @@
     = javascript_include_tag 'application'
 
     %body
-        %div{:class => 'navbar navbar-default navbar-static-top'}
-            %div{:class => 'container'}
-                %button{:type => 'button', :class=> 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-responsive-collapse'}
-                    %span{:class => 'icon-bar'}
-                    %span{:class => 'icon-bar'}
-                    %span{:class => 'icon-bar'}
-                = link_to 'Nice Marmot', root_path, class: 'navbar-brand'
-                %div{:class => 'navbar-collapse collapse navbar-responsive-collapse'}
-                    %ul{:class => 'nav navbar-nav'}
-                        %li
-                            = link_to 'Products', products_path
+        %div.navbar.navbar-default
+            %div.container-fluid.logo-container
+                %a{href: products_path}
+                    %div.logo
+                        Tee Shits
 
-        %div{:class => 'container'}
-            %div{:class => 'row'}
+        %div.container.main
+            %div.row
                 = bootstrap_flash
                 = yield
+
+
+        %div.container-fluid.mailing-container
+            %div.row
+                %div.col-md-2
+                %div.col-md-8.centered
+                    =form_tag controller: :mailing_addresses, action: :add do
+                        %label.text Still not offended? Let's keep in touch!
+                        =text_field :mailing_address, :email, placeholder: 'youremail@example.com'
+                        =submit_tag "Subscribe", class: 'my-btn'
+                %div.col-md-2
+
+        %div.container-fluid.footer
+            %div.row
+                %div.col-md-4
+                %div.col-md-4.text-center.text
+                    =link_to 'About', about_path
+                    =mail_to 'jake.r.buller@gmail.com', 'Contact'
+                    %p &copy; 2015 Tee Shits Clothing
+                %div.col-md-4

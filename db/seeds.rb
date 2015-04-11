@@ -9,6 +9,14 @@ product_images = [
 ActiveRecord::Base.connection.execute("truncate table products")
 
 # Create some dummy products
-10.times do |i|
-  Product.create(name: "Product ##{i}", description: "A product.", price: rand(9.99...30.00), available: true, image_link: product_images.sample, purchase_link: 'google.ca')
+9.times do |i|
+  Product.create(
+         name: 'Brian Surgeon',
+         description: 'An instant classic, Brian Surgeon is the epitome of a ridiculous shirt. We think it\'s Hilarious and we hope you do too!',
+         price: 15.99,
+         available: true,
+         image_link: 'brian_surgeon.png',
+         purchase_link: 'http://teespring.com'
+  )
+
 end

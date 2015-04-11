@@ -1,4 +1,5 @@
 @import "twitter/bootstrap/bootstrap";
+@import "variables.less";
 
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
@@ -11,22 +12,66 @@
 @fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
 @fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
 
-// Font Awesome
-@import "fontawesome/font-awesome";
+.navbar {
+  border-radius: 0;
+  border: none;
+}
 
-// Glyphicons
-//@import "twitter/bootstrap/glyphicons.less";
+.my-btn {
+  border-radius: 5px;
+  border: 1px @blue-1 solid;
+  background: @blue-2;
+  padding: 5px 15px 5px 15px;
+  color: #fff;
+}
 
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
-//
-// Example:
-// @link-color: #ff0000;
+.my-btn:hover {
+  background: @blue-1;
+}
+
+input[type=text] {
+  border-radius: 5px;
+  border: 1px @blue-1 solid;
+  padding: 5px;
+  color: @brand-primary;
+}
+
+h2 {
+  font-family: @main-font;
+  font-weight: bold;
+}
+
+.text {
+  font-family: @main-font;
+  color: @grey-2;
+  font-size: 20px;
+}
+
+.text-2 {
+  font-family: @main-font;
+  color: @brand-primary;
+  font-size: 20px;
+}
+
+.logo-container {
+  padding: 10px;
+  border-bottom: 3px solid #CCC;
+}
+
+.logo {
+  color:#fff;
+  font-family: @logo-font;
+  font-size: 48px;
+  text-align: center;
+
+  img {
+    max-width: 300px;
+  }
+}
+
+.spacer {
+  margin-top: 30px;
+}
 
 .product_main_img {
   width: 100%;
@@ -35,42 +80,95 @@
 
 .welcome-title {
   text-align: center;
-  font-family: 'Indie Flower', cursive;
-}
-
-.welcome-title-1 {
-  &:extend(.welcome-title);
-  font-weight: bold;
-  font-size: 48px;
-}
-
-.welcome-title-2 {
-  &:extend(.welcome-title);
+  font-family: @main-font;
 }
 
 .lk-credit {
   text-align: right;
-  font-family: 'Indie Flower', cursive;
+  font-family: @main-font;
 }
 
-.product-listing {
-  height: 300px;
-  text-align: center;
+.product-col {
+  height: 350px;
 }
 
 .product-listing-image {
+  position: relative;
+  height: 90%;
+  text-align: center;
   img {
-    width: 80%;
-    height: 60%;
+    height: 100%;
   }
 }
 
+.product-listing-info {
+  text-align: center;
+  height: 10%;
+}
+
+.product-price-tag, .product-buy-now {
+  font-size: 24px;
+  font-family: @main-font;
+  font-weight: bold;
+}
+
 .product-price-tag {
-  position: absolute;
-  right: 10%;
-  bottom: 10%;
-  text-align: right;
-  background: #CCCCCC;
-  color: #fff;
-  padding: 2%;
+  padding-right: 10px;
+  margin-top: 8px;
+  display: inline-block;
+  color: @grey-2;
+}
+
+.product-buy-now {
+  padding-left: 10px;
+}
+
+.footer {
+  border-top: 3px solid @grey-1;
+  padding: 20px 10px 10px 10px;
+  background: @brand-primary;
+  font-size: 20px;
+
+  a {
+    color: #fff;
+    padding: 0 20px 0 20px;
+  }
+}
+
+.product-info {
+  font-family: @main-font;
+  font-size: 24px;
+}
+
+.about-container {
+  font-family: @main-font;
+  text-align: center;
+}
+
+.mailing-container {
+  line-height: 20px;
+  background: @grey-1;
+  padding: 20px;
+
+  label {
+    color: @blue-1;
+    text-align: center;
+  }
+
+  input[type=text] {
+    width: 200px;
+  }
+
+  input {
+    margin-left: 15px;
+  }
+}
+
+.centered {
+  text-align: center;
+}
+
+.main {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

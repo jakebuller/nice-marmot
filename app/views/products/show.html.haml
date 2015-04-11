@@ -1,18 +1,17 @@
-%div{:class => 'row'}
-  %div{:class => 'col-xs-4'}
-    =image_tag @product.image_link, :class => 'product_main_img'
-
-  %div{:class => 'col-xs-4'}
-
-    %div{:class => 'product-name'}
+%div.row
+  %div.col-md-5
+    %div.product-image
+      =image_tag @product.image_link, :class => 'product_main_img'
+  %div.col-md-7
+    %div.product-info
       %h2
         =@product.name
 
-    %div{:class => 'product-description'}
-      =@product.description
+      %div.product-description.text
+        =@product.description
 
-    %div{:class => 'product-price'}
-      =number_to_currency(@product.price)
+      %div.product-price.text
+        =number_to_currency(@product.price)
 
-    %div{:class => 'product-button-wrapper' }
-      =button_to 'Buy', @product.purchase_link, class: 'button btn-default product-buy'
+      %div.product-button-wrapper
+        =button_to 'Buy', @product.purchase_link, class: 'my-btn product-buy'
