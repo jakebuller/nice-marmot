@@ -6,10 +6,10 @@ product_images = [
 ]
 
 # Remove all of the existing products
-ActiveRecord::Base.connection.execute("truncate table products")
+# ActiveRecord::Base.connection.execute("truncate table products")
 
 # Create some dummy products
-9.times do |i|
+3.times do |i|
   Product.create(
          name: 'Brian Surgeon',
          description: 'An instant classic, Brian Surgeon is the epitome of a ridiculous shirt. We think it\'s Hilarious and we hope you do too!',
