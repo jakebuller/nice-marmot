@@ -18,3 +18,4 @@
 
 #ignore all ruby mine stuff
 .idea/*
+pids/*

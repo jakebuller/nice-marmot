@@ -1,7 +1,8 @@
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  host: localhost
 
 development:
   <<: *default
@@ -17,7 +18,6 @@ test:
 
 production:
   <<: *default
-  host: localhost
   username: nice_marmot_db
   password: NMDBadmin123!
   database: nice_marmot_production
