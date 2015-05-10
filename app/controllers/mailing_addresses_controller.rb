@@ -1,6 +1,5 @@
 class MailingAddressesController < ApplicationController
   def add
-
     begin
       MailingAddress.create(mailing_address_params)
     rescue => e
