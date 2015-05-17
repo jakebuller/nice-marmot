@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Mailing address routes
   post 'mailing_addresses', to: 'mailing_addresses#add'
 
+  #orders
+  post 'orders', to: 'orders#create'
+
   # About routes
   get 'about', to: 'about#index'
 end

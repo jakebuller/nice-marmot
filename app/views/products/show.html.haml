@@ -14,4 +14,5 @@
         =number_to_currency(@product.price)
 
       %div.product-button-wrapper
-        =button_to 'Buy', @product.purchase_link, class: 'my-btn product-buy'
+        = form_tag('/orders', method: 'post') do
+          =submit_tag 'Buy'
