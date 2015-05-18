@@ -3,7 +3,7 @@
 # Ruby Linter
 # -------------------------------
 echo 'Running rubocop'
-ruby $(cd "$(dirname "$0")" && pwd)/rubocop.rb
+ruby $(cd "$(dirname "$0")" && pwd)/../../hooks/rubocop.rb
 if [ $? != 0 ]
 then
   exit 1
