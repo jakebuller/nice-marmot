@@ -9,6 +9,14 @@ module TeeShits
         raise "Method #{__method__} need to be implemented."
       end
 
+      def create_customer
+        raise "Method #{__method__} need to be implemented."
+      end
+
+      def add_payment_option(token)
+        raise "Method #{__method__} need to be implemented."
+      end
+
       def has_errors?
         raise "Method #{__method__} need to be implemented."
       end

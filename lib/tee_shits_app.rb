@@ -15,7 +15,8 @@ module TeeShits
       @error
     end
 
-    def create_order
+    def create_order(token)
+      @payment_processor.add_payment_option(token)
       @payment_processor.pre_authorize 200
 
       if @payment_processor.has_errors?
@@ -32,8 +33,8 @@ module TeeShits
       end
     end
 
-    def self.create
-      return self.new(TeeShits::Base::StripeProcessor.new('cus_6G2QyUYDjCeHUn'))
+    def self.create(email)
+      return self.new(TeeShits::Base::StripeProcessor.new(email))
     end
   end
 end

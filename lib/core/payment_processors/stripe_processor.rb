@@ -6,11 +6,28 @@ module TeeShits
   module Base
     class StripeProcessor < PaymentProcessorBase
 
-      def initialize(customer_id)
+      def initialize(email)
         Stripe.api_key = Rails.application.secrets.stripe_api_key
-        @customer_id   = customer_id
         @currency      = 'usd'
-        @errors = Array.new
+        @errors        = Array.new
+        @customer      = self.create_customer email
+      end
+
+      def create_customer(email)
+        start_stripe_interaction {
+          customer = Stripe::Customer.create(
+            :email => email
+          )
+
+          customer
+        }
+      end
+
+      def add_payment_option(token)
+        start_stripe_interaction {
+          @customer.source = token
+          @customer.save
+        }
       end
 
       def pre_authorize(amount)
@@ -18,8 +35,8 @@ module TeeShits
           charge = Stripe::Charge.create(
             :amount      => amount,
             :currency    => @currency,
-            :customer    => @customer_id,
-            :description => "", # TODO create real description using localization
+            :customer    => @customer.id,
+            :description => "test charge 123", # TODO create real description using localization
             :capture     => false
           )
 
@@ -51,46 +68,28 @@ module TeeShits
       private
 
       def translate_error
-        TeeShits::Helpers::Error.new('abc123')
+        # Grab the error
+        e = @errors.pop
+
+        # Translate it to something nice
+        if e.is_a?(Stripe::CardError)
+          body    = e.json_body
+          err     = body[:error]
+          message = "#{err[:message]}"
+        elsif e.is_a?(Stripe::InvalidRequestError)
+          message = "You have entered an invalid card" # TODO implement localization
+        else
+          message = "An error occurred completing your payment, please try again or contact us for support."
+        end
+
+        TeeShits::Helpers::Error.new(message)
       end
 
       def start_stripe_interaction
         begin
           yield
-        rescue Stripe::CardError => e
-          @errors << e
-          # Since it's a decline, Stripe::CardError will be caught
-          # body = e.json_body
-          # err  = body[:error]
-          #
-          # puts "Status is: #{e.http_status}"
-          # puts "Type is: #{err[:type]}"
-          # puts "Code is: #{err[:code]}"
-          # param is '' in this case
-          # puts "Param is: #{err[:param]}"
-          # puts "Message is: #{err[:message]}"
-        rescue Stripe::InvalidRequestError => e
-          @errors << e
-          # Invalid parameters were supplied to Stripe's API
-          # TODO complete implementation
-        rescue Stripe::AuthenticationError => e
-          @errors << e
-          # Authentication with Stripe's API failed
-          # (maybe you changed API keys recently)
-          # TODO complete implementation
-        rescue Stripe::APIConnectionError => e
-          @errors << e
-          # Network communication with Stripe failed
-          # TODO complete implementation
         rescue Stripe::StripeError => e
           @errors << e
-          # Display a very generic error to the user, and maybe send
-          # yourself an email
-          # TODO complete implementation
-        rescue => e
-          @errors << e
-          # Something else happened, completely unrelated to Stripe
-          # TODO complete implementation
         end
       end
     end
