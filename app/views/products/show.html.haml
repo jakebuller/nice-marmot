@@ -50,36 +50,42 @@
       %div.product-price.text
         =number_to_currency(@product.price)
 
-      -#= form_tag('/orders', method: 'post', :id => "payment-form") do
       %form{:action => "/orders", :method => "POST", :id => "payment-form"}
+        %input{:type => "hidden", :name => "product_id", :value => @product.id}
+
         %span.payment-errors
 
         %div.form-row
-          %label>
+          %label
+            %span
+              Quantity
+            = select_tag 'quantity', options_for_select((1..5).to_a.map{|n| [n, n]})
+        %div.form-row
+          %label
             %span
               Email Address
-            %input{:type => "text", :size => "20", :name => "email"}
+            %input{:type => "text", :name => "email"}
 
         %div.form-row
-          %label>
+          %label
             %span
               Card Number
-            %input{:type => "text", :size => "20", "data-stripe" => "number"}
+            %input{:type => "text", "data-stripe" => "number"}
 
         %div.form-row
           %label
             %span
               CVC
-            %input{:type => "text", :size => "4", "data-stripe" => "cvc"}
+            %input{:type => "text", "data-stripe" => "cvc"}
 
         %div.form-row
           %label
             %span
               Expiration (MM/YYYY)
-            %input{:type => "text", :size => "2", "data-stripe" => "exp-month"}
+            %input{:type => "text", "data-stripe" => "exp-month"}
           %span
           /
-          %input{:type => "text", :size => "4", "data-stripe" => "exp-year"}
+          %input{:type => "text", "data-stripe" => "exp-year"}
 
         %button{:type => "submit"}
           Buy Now

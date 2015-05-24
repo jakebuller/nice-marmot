@@ -40,6 +40,10 @@ group :development, :test do
 
   gem 'rubocop'
 
+  gem 'factory_girl_rails'
+
+  gem 'database_cleaner'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
