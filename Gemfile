@@ -29,8 +29,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml'
 
+gem 'stripe'
+
 group :development, :test do
   gem 'rspec-rails'
+
+  gem 'guard-rspec'
+
+  gem 'simplecov'
+
+  gem 'rubocop'
+
+  gem 'factory_girl_rails'
+
+  gem 'database_cleaner'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

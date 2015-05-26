@@ -19,3 +19,6 @@
 #ignore all ruby mine stuff
 .idea/*
 pids/*
+
+#ignore all of the coverage files
+coverage/*

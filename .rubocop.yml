@@ -1,0 +1,14 @@
+#inherit_from: ../.rubocop.yml
+
+Style/Encoding:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+
+Metrics/MethodLength:
+    CountComments: false  # count full line comments?
+    Max: 10
+
+Documentation:
+    Enabled: false

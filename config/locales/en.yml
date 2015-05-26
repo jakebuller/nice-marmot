@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  orders:
+    success: "Awesome, you're order has been placed, you'll be getting funny looks in public before your know it!"
+    error: "Uh oh! It seems like we had some trouble placing your order: %{error}"
+
+  payment:
+    error:
+      generic: "An error occurred completing your payment, please try again or contact us for support."
+      invalid_request: "You have entered an invalid card"
+    description: "%{description}"

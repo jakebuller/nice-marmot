@@ -6,18 +6,18 @@ default: &default
 
 development:
   <<: *default
-  database: nice_marmot_development
-  username: nice_marmot_db
+  database: tee_shits_development
+  username: tee_shits_db
   password: NMDBadmin123!
 
 test:
   <<: *default
-  database: nice_marmot_test
-  username: nice_marmot_db
+  database: tee_shits_test
+  username: tee_shits_db
   password: NMDBadmin123!
 
 production:
   <<: *default
-  username: nice_marmot_db
+  username: tee_shits_db
   password: NMDBadmin123!
-  database: nice_marmot_production
+  database: tee_shits_production
